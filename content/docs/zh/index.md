@@ -20,6 +20,8 @@ title: "Casbin Gateway用户手册"
 - [2.3 监控、会话与活动记录](./2-agents/2.3-monitoring.md)
 - [2.4 技能、MCP与提示词](./2-agents/2.4-skills-mcp-prompts.md)
 - [2.5 连接](./2-agents/2.5-connections.md)
+- [2.6 聊天](./2-agents/2.6-chat.md)
+- [2.7 聊天渠道](./2-agents/2.7-channels.md)
 
 **3. 供应商**
 

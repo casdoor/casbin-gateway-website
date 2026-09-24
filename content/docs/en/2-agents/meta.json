@@ -5,7 +5,9 @@
     "2.2-versions",
     "2.3-monitoring",
     "2.4-skills-mcp-prompts",
-    "2.5-connections"
+    "2.5-connections",
+    "2.6-chat",
+    "2.7-channels"
   ],
   "defaultOpen": true
 }

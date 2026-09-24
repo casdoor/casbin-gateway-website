@@ -20,6 +20,8 @@ title: "Casbin Gateway User Manual"
 - [2.3 Monitoring, sessions and activity](./2-agents/2.3-monitoring.md)
 - [2.4 Skills, MCP & Prompts](./2-agents/2.4-skills-mcp-prompts.md)
 - [2.5 Connections](./2-agents/2.5-connections.md)
+- [2.6 Chat](./2-agents/2.6-chat.md)
+- [2.7 Chat channels](./2-agents/2.7-channels.md)
 
 **3. Providers**
 
