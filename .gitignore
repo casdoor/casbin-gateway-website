@@ -141,3 +141,13 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Fumadocs
+.source
+next-env.d.ts
+.vercel
+
+# synced from apache/casbin-gateway by scripts/sync-docs.mjs
+/content/docs/
+
+.idea/
