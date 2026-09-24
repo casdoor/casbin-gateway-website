@@ -153,10 +153,10 @@ export default async function HomePage({ params }: PageProps<'/[lang]'>) {
       <section className="mx-auto w-full max-w-5xl px-4 py-12">
         <div className="overflow-hidden rounded-xl border bg-fd-card shadow-lg">
           <Image
-            src="https://cdn.casbin.org/img/casbin-gateway.gif"
+            src="/casbin-gateway.gif"
             alt={projectName}
-            width={800}
-            height={500}
+            width={1600}
+            height={1000}
             className="w-full"
             priority
           />
