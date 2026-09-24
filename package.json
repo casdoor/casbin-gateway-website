@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "sync": "node scripts/sync-docs.mjs",
-    "predev": "npm run sync",
     "dev": "next dev",
-    "prebuild": "npm run sync",
     "build": "next build",
     "start": "next start",
     "types:check": "next typegen && tsc --noEmit",

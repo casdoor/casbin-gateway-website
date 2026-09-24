@@ -1,0 +1,12 @@
+{
+  "title": "文档",
+  "pages": [
+    "index",
+    "1-getting-started",
+    "2-agents",
+    "3-providers",
+    "4-governance",
+    "5-operations",
+    "6-faq"
+  ]
+}

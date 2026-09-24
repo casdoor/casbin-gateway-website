@@ -2,17 +2,14 @@
 
 The documentation site for [Apache Casbin Gateway](https://github.com/apache/casbin-gateway), a subproject of [Apache Casbin (Incubating)](https://casbin.apache.org/), in English and Chinese, built with [Fumadocs](https://fumadocs.dev) on Next.js.
 
-## Where the content comes from
+## Writing the docs
 
-The manual is not written here. It lives in the gateway repository under [`docs/user-manual`](https://github.com/apache/casbin-gateway/tree/master/docs/user-manual), so it changes in the same pull request as the code it describes. `npm run sync` copies it into `content/docs/` (which is not committed), and both `npm run dev` and `npm run build` run it first.
+The manual is in `content/docs/`, one folder per language with the same chapters and file names in each, so `2.3` is the same page in English and Chinese. Change both languages in the same pull request.
 
-The sync script looks for the gateway repository in this order:
-
-1. `GATEWAY_REPO_DIR`, if set
-2. `../casbin-gateway`, a checkout next to this one
-3. a sparse clone of `apache/casbin-gateway` in `.cache/`, made on first use and pulled after that
-
-On the way in, each page's `# Heading` becomes its title, the first paragraph its description, `README.md` becomes the section index, and a link that leaves the manual is pointed at the file on GitHub.
+- Each page starts with frontmatter. `title` is the heading shown on the page, so the body has no `# Heading` of its own. `description` is a plain-text summary for search results and the preview image, usually the opening paragraph with the formatting taken out.
+- `index.md` is a language's front page. Each chapter folder has a `meta.json` holding its title and page order, and the language folder's own `meta.json` lists the chapters.
+- Link to another page by its file, relatively, such as `[Permissions](../4-governance/4.1-permissions.md)`; the site turns that into the page URL. To link to the other language, use the site path, such as `/zh/docs/2-agents/2.1-agents`.
+- Screenshots are served from `cdn.casbin.org`.
 
 ## Run it
 
@@ -32,10 +29,10 @@ Then open http://localhost:3000. `/` sends the visitor to `/en` or `/zh` by thei
 | `app/[lang]/og` | Social preview images, one per page |
 | `app/[lang]/llms.mdx`, `app/llms.txt`, `app/llms-full.txt` | The manual as Markdown, for agents; append `.md` to any page URL to get it |
 | `app/api/search` | Search over both languages |
+| `content/docs` | The manual, as described above |
 | `lib/i18n.ts` | The two languages; content is split by folder (`content/docs/en`, `content/docs/zh`) |
 | `lib/layout.shared.tsx` | Navigation, and the Chinese strings for Fumadocs' own UI |
 | `lib/asf.ts`, `components/asf-footer.tsx` | The ASF links, incubation disclaimer, copyright and trademark notices |
-| `scripts/sync-docs.mjs` | The sync described above |
 
 The colours are the Amber & Ink palette of the Gateway web UI, set in `app/global.css`.
 

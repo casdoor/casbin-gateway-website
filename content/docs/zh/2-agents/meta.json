@@ -1,0 +1,11 @@
+{
+  "title": "2. Agent客户端",
+  "pages": [
+    "2.1-agents",
+    "2.2-versions",
+    "2.3-monitoring",
+    "2.4-skills-mcp-prompts",
+    "2.5-connections"
+  ],
+  "defaultOpen": true
+}

@@ -1,0 +1,12 @@
+{
+  "title": "3. Providers",
+  "pages": [
+    "3.1-providers",
+    "3.2-routing",
+    "3.3-caller-login",
+    "3.4-authenticity",
+    "3.5-import",
+    "3.6-model-routing"
+  ],
+  "defaultOpen": true
+}

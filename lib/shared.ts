@@ -5,18 +5,18 @@ export const docsRoute = '/docs';
 export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';
 
+// The product's own repository, which the GitHub buttons point at.
+export const repoUrl = 'https://github.com/apache/casbin-gateway';
+
+// This repository, where the manual is written.
 export const gitConfig = {
-  user: 'apache',
-  repo: 'casbin-gateway',
+  user: 'casdoor',
+  repo: 'casbin-gateway-website',
   branch: 'master',
 };
 
-export const repoUrl = `https://github.com/${gitConfig.user}/${gitConfig.repo}`;
-
-// The manual lives in the gateway repository; content/docs is a synced copy.
 export function getPageSourceUrl(path: string) {
-  const file = path.replace(/(^|\/)index\.md$/, '$1README.md');
-  return `${repoUrl}/blob/${gitConfig.branch}/docs/user-manual/${file}`;
+  return `https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/docs/${path}`;
 }
 
 const getContentUrl = createGetUrl(docsContentRoute);
