@@ -14,6 +14,8 @@ import type { Metadata } from 'next';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { ComponentProps } from 'react';
 import { getPageImageUrl, getPageMarkdownUrl, getPageSourceUrl } from '@/lib/shared';
+import { i18n } from '@/lib/i18n';
+import { alternates } from '@/lib/seo';
 
 export default async function Page(props: PageProps<'/[lang]/docs/[[...slug]]'>) {
   const { lang, slug } = await props.params;
@@ -67,9 +69,11 @@ export async function generateMetadata(props: PageProps<'/[lang]/docs/[[...slug]
   const page = source.getPage(slug, lang);
   if (!page) notFound();
 
+  const langs = i18n.languages.filter((l) => source.getPage(slug, l));
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: alternates(lang, page.url.slice(lang.length + 1), langs),
     openGraph: {
       images: getPageImageUrl(page).url,
     },

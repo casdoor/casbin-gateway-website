@@ -24,9 +24,10 @@ Then open http://localhost:3000. `/` sends the visitor to `/en` or `/zh` by thei
 
 | Path | What it is |
 | --- | --- |
-| `app/[lang]/(home)` | The landing page |
+| `app/[lang]/(home)`, `lib/home.ts` | The landing page and its copy in both languages |
 | `app/[lang]/docs` | The manual |
-| `app/[lang]/og` | Social preview images, one per page |
+| `app/[lang]/og` | Social preview images, one per page and one for the home page |
+| `app/sitemap.ts`, `app/robots.ts`, `lib/seo.ts` | The sitemap, robots.txt, and each page's canonical URL and language alternates |
 | `app/[lang]/llms.mdx`, `app/llms.txt`, `app/llms-full.txt` | The manual as Markdown, for agents; append `.md` to any page URL to get it |
 | `app/api/search` | Search over both languages |
 | `content/docs` | The manual, as described above |
@@ -40,4 +41,4 @@ The colours are the Amber & Ink palette of the Gateway web UI, set in `app/globa
 
 Every page carries the links, disclaimer and notices the ASF asks of a podling's site: the **ASF** menu in the header, and the footer under the home page and every docs page. The disclaimer and notices stay in English in both languages, as on casbin.org.
 
-The [ASF privacy policy](https://privacy.apache.org/policies/privacy-policy-public.html) rules out third-party requests from the visitor's browser, so nothing here loads from another host: Inter is downloaded at build time by `next/font`, the agent icons are in `public/agents/`, and the screenshots from `cdn.casbin.org` go through Next's image optimizer. Keep it that way — no analytics, no font or icon CDNs.
+The site is served from `gateway.casbin.org`, not an `apache.org` host, so it carries Google Analytics (`G-0JHXVD1BZV`) and Baidu Tongji, set in `lib/shared.ts`. Everything else still loads from this host: Inter is downloaded at build time by `next/font`, the agent icons are in `public/agents/`, and the screenshots from `cdn.casbin.org` go through Next's image optimizer. If the site moves under `apache.org`, the [ASF privacy policy](https://privacy.apache.org/policies/privacy-policy-public.html) rules out third-party requests, and both trackers have to go.

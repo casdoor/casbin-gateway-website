@@ -13,7 +13,11 @@ const { rewrite: rewriteSuffix } = rewritePath(
   `/:lang${docsContentRoute}{/*path}/content.md`,
 );
 
-const i18nProxy = createI18nMiddleware(i18n);
+// `/` goes straight to `/en`; the default formatter sends it to `/en/`, which then redirects again.
+const i18nProxy = createI18nMiddleware({
+  ...i18n,
+  format: (locale, pathname) => (pathname === '/' ? `/${locale}` : `/${locale}${pathname}`),
+});
 
 export default function proxy(request: NextRequest, event: NextFetchEvent) {
   const suffix = rewriteSuffix(request.nextUrl.pathname);
@@ -36,6 +40,6 @@ export default function proxy(request: NextRequest, event: NextFetchEvent) {
 }
 
 export const config = {
-  // Static files skip the locale redirect; `.md` does not, as it maps a page to its Markdown.
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.(?:png|jpe?g|gif|svg|ico|webp|txt)$).*)'],
+  // Static files, robots.txt and sitemap.xml skip the locale redirect; `.md` does not, as it maps a page to its Markdown.
+  matcher: ['/((?!api|_next/static|_next/image|.*\\.(?:png|jpe?g|gif|svg|ico|webp|txt|xml)$).*)'],
 };

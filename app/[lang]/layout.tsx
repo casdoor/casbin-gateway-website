@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { i18nProvider } from 'fumadocs-ui/i18n';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import { i18n } from '@/lib/i18n';
 import { translations } from '@/lib/layout.shared';
-import { appName } from '@/lib/shared';
+import { BaiduTongjiPageview } from '@/components/baidu-tongji';
+import { appName, baiduTongjiId, googleAnalyticsId, siteUrl } from '@/lib/shared';
 import '../global.css';
 
 const inter = Inter({
@@ -13,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gateway.casbin.org'),
+  metadataBase: new URL(siteUrl),
   title: {
     template: `%s | ${appName}`,
     default: appName,
@@ -33,6 +35,19 @@ export default async function Layout({ params, children }: LayoutProps<'/[lang]'
     <html lang={lang === 'zh' ? 'zh-CN' : lang} className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider i18n={i18nProvider(translations, lang)}>{children}</RootProvider>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${googleAnalyticsId}');`}
+        </Script>
+        {baiduTongjiId && (
+          <>
+            <Script src={`https://hm.baidu.com/hm.js?${baiduTongjiId}`} strategy="afterInteractive" />
+            <BaiduTongjiPageview />
+          </>
+        )}
       </body>
     </html>
   );

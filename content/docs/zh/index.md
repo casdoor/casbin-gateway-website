@@ -1,5 +1,6 @@
 ---
 title: "Casbin Gateway用户手册"
+description: "Apache Casbin Gateway用户手册：面向本机AI编程Agent的开源本地网关，包括安装、Agent、供应商、权限、用量和运维。"
 ---
 
 > 面向本机AI编码Agent的开源网关——Agent背后的供应商、每个Agent能做什么、各自花了多少，都在一个地方。

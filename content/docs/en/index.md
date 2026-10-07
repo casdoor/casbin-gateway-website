@@ -1,5 +1,6 @@
 ---
 title: "Casbin Gateway User Manual"
+description: "The user manual of Apache Casbin Gateway, the open-source local gateway for AI coding agents: installation, agents, providers, permissions, usage and operations."
 ---
 
 > An open-source gateway for the AI coding agents on your machine — one place for the providers behind them, what they are allowed to do, and what they spend.
