@@ -5,7 +5,7 @@ export const siteUrl = 'https://gateway.casbin.org';
 
 // GA4 property 557919942 and Baidu Tongji, which counts the visitors in China that GA misses.
 export const googleAnalyticsId = 'G-0JHXVD1BZV';
-export const baiduTongjiId = '';
+export const baiduTongjiId = 'afce7811d336b55df94d282dd64fb54e';
 export const docsRoute = '/docs';
 export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';
